@@ -1,0 +1,15 @@
+{
+  "name": "apible",
+  "version": "1.0.0",
+  "description": "create api services for any typed resource",
+  "main": "dist/main.js",
+  "author": "nlaigle",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "rxjs": "^7.5.7"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}
