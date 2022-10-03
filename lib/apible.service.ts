@@ -89,9 +89,14 @@ export class Apible<TResource extends { id?: Primitive }> {
     try {
       const response = (await Axios.post<TCreateResponse>(url, resource)).data;
 
+      const handleInteractivity =
+        options?.handleInteractivity !== undefined
+          ? options?.handleInteractivity
+          : true;
+
       this.checkInteractions({
         type: 'create',
-        handleInteractivity: options?.handleInteractivity,
+        handleInteractivity: handleInteractivity,
         customInteractionMetaData: options?.customInteractionMetaData,
         resource,
       });
@@ -119,9 +124,14 @@ export class Apible<TResource extends { id?: Primitive }> {
         await Axios.delete<TDeleteResponse>(`${url}/${String(id)}`)
       ).data;
 
+      const handleInteractivity =
+        options?.handleInteractivity !== undefined
+          ? options?.handleInteractivity
+          : true;
+
       this.checkInteractions({
         type: 'delete',
-        handleInteractivity: options?.handleInteractivity,
+        handleInteractivity: handleInteractivity,
         customInteractionMetaData: options?.customInteractionMetaData,
         resource: { id: id } as Partial<TResource>,
       });
@@ -151,9 +161,14 @@ export class Apible<TResource extends { id?: Primitive }> {
         await Axios.patch<TUpdateResponse>(`${url}/${String(id)}`, resource)
       ).data;
 
+      const handleInteractivity =
+        options?.handleInteractivity !== undefined
+          ? options?.handleInteractivity
+          : true;
+
       this.checkInteractions({
         type: 'update',
-        handleInteractivity: options?.handleInteractivity,
+        handleInteractivity: handleInteractivity,
         customInteractionMetaData: options?.customInteractionMetaData,
         resource: resource as Partial<TResource>,
       });
@@ -176,13 +191,10 @@ export class Apible<TResource extends { id?: Primitive }> {
       type?: ResourceInteractionEventType;
     } & InteractivityOptions
   ): void {
-    if (options.interaction) {
+    if (options?.interaction) {
       // If interaction has been manually set
       this.events.next(options.interaction);
-    } else if (
-      options.handleInteractivity ||
-      options.handleInteractivity === undefined
-    ) {
+    } else if (options?.handleInteractivity) {
       // If interaction is the default behavior
       this.events.next({
         type: options?.type,
