@@ -1,6 +1,2 @@
-export {
-  Apible,
-  InteractivityOptions,
-  ResourceInteractionEvent,
-  ResourceInteractionEventType,
-} from './apible.service';
+export { Apible } from './apible.service';
+export * from './types';
