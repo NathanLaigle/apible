@@ -1,7 +1,7 @@
 # About Apible
 
 Apible is a simple lib, based on axios, that performs basic http requests on REST API. To use an Apible instance,
-just provide a typed entity to Apible instance create like below.
+just provide a typed entity to Apible instance like below.
 
 ```
 import { Apible } from 'apible';
