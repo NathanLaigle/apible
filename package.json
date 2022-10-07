@@ -1,8 +1,16 @@
 {
   "name": "apible",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "create api services for any typed resource",
   "main": "dist/main.js",
+  "keywords": [
+    "api",
+    "axios",
+    "rxjs",
+    "rest",
+    "http",
+    "request"
+  ],
   "author": "nlaigle",
   "license": "MIT",
   "dependencies": {
