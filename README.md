@@ -141,7 +141,7 @@ const createdEntity: Entity = await apible.create(
 );
 ```
 
-Custom metadata can be used to improve events filters while subscribing events subject. Here is an example:
+Custom metadata can be use to improve events filters while subscribing to events subject. Here is an example:
 
 ```
 import { Apible, ResourceInteractionEvent } from 'apible';
