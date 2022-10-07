@@ -190,7 +190,7 @@ export class Apible<TResource extends { id?: Primitive }> {
   }
 
   /**
-   * @description check interactions and update events property if need
+   * @description check interactions and update events property if needed
    * @param options ResourceInteractionEvent
    * @return void
    */
