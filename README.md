@@ -15,10 +15,10 @@ const apible = new Apible<Entity>();
 The created apible instance will provide the following methods :
 
 - [getAll](#getAll)
-- getOne
-- create
-- update
-- delete
+- [getOne](#getAll)
+- [create](#create)
+- [update](#update)
+- [delete](#delete)
 
 An RXJS subject will also be provided. This subject, named [events](#events), will emit all
 interactions made by apible instance. It can be usefull to detect potential changes on the API and use
@@ -26,13 +26,15 @@ some callback actions in your front-end.
 
 # getAll
 
-## Simple use:
+Performs a GET request.
+
+#### Simple use:
 
 ```
 const response: Entity[] = await apible.getAll(`http://localhost:3000/entity`);
 ```
 
-## Add filters:
+#### Add filters:
 
 ```
 const response: Entity[] = await apible.getAll(`http://localhost:3000/entity`, {
@@ -47,10 +49,24 @@ Filters will be added as query params (example : "http://localhost:3000/entity?n
 
 # getOne
 
-## Simple use:
+Performs a GET request.
+
+#### Simple use:
 
 ```
 const response: Entity = await apible.getOne(`http://localhost:3000/entity`, 1);
 ```
 
 The entity's identifier will be added as a path parameter (example : "http://localhost:3000/entity/1")
+
+# create
+
+Performs a POST request.
+
+#### Simple use:
+
+```
+const response: Entity = await apible.create(`http://localhost:3000/entity`, {name : 'nathan'});
+```
+
+# update
