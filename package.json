@@ -1,6 +1,6 @@
 {
   "name": "apible",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "create api services for any typed resource",
   "main": "dist/main.js",
   "author": "nlaigle",
