@@ -151,10 +151,20 @@ export class Apible<TResource extends { id?: Primitive }> {
    */
   async update<TUpdateResponse>(
     url: string,
-    resource: TResource & { id: Primitive },
+    resource: Partial<TResource> & { id?: Primitive },
     options?: InteractivityOptions
   ): Promise<TUpdateResponse> {
     const { id } = resource;
+
+    if (!id) {
+      throw new Error(
+        `Cannot update a resource without an id. Trying to update : ${JSON.stringify(
+          resource
+        )}. Making a request to ${url}. Settings : ${
+          options || 'no settings given'
+        }.`
+      );
+    }
 
     try {
       const response = (
