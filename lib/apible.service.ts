@@ -12,7 +12,7 @@ import {
 
 export class Apible<TResource extends { id?: Primitive }> {
   /**
-   * @description events property is an RXJS subject that can observed to get
+   * @description events property is an RXJS subject that can be observed to get
    * any interactions on the current apible managed resource.
    */
   events: Subject<ResourceInteractionEvent<TResource>> = new Subject<
